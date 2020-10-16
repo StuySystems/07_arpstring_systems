@@ -22,12 +22,12 @@ int main()
     }
 
     float average_val = average(arr, 6);
-    printf("average of 0-5 = %0.2f\n", average_val);
+    printf("\naverage of 0-5 = %0.2f\n", average_val);
 
     int arr0[5];
     int arr1[5];
 
-    printf("\n");
+    printf("\n\nBefore Copying\n\n");
     for (i = 0; i < 5; i++)
     {
         arr0[i] = i;
@@ -39,13 +39,10 @@ int main()
         arr1[i] = i + 5;
         printf("arr1[%d] = %d\n", i, arr1[i]);
     }
-    printf("\n");
-    printf("\n");
 
     copy(arr0, arr1, 5);
 
-    printf("After copying:\n");
-    printf("\n");
+    printf("\n\nAfter copying:\n\n");
     for (i = 0; i < 5; i++)
     {
         printf("arr0[%d] = %d\n", i, arr0[i]);
@@ -58,7 +55,7 @@ int main()
     printf("\n");
     char str[9] = "Something"; // 9 chars
     int len = str_length(str);
-    printf("the length of the str is %d char(s)\n", len);
+    printf("the length of the str is %d char(s)\n\n", len);
 }
 
 float average(int arr[], int length)
@@ -79,7 +76,7 @@ void copy(int arr0[], int arr1[], int length)
     int i;
     for (i = 0; i < length; i++)
     {
-        *arr1 = *arr0;
+        *arr1 = *arr0; // deref. each value, assign that in arr0 to that in 1
 
         arr0++;
         arr1++;
@@ -89,7 +86,7 @@ void copy(int arr0[], int arr1[], int length)
 int str_length(char str[])
 {
     int length = 0;
-    while (*str != 0 && *str != '\0')
+    while (*str != 0 && *str != '\0') // make sure we're not encountering the NULL end of string
     {
         length++;
         str++;
